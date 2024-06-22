@@ -19,7 +19,6 @@ public class GroupAnagrams {
        int[] counts = new int[26];
 
        for (char c : str.toLowerCase().toCharArray()) {
-
            int ind = c - 'a';
            counts[ind]++;
        }
@@ -40,9 +39,10 @@ public class GroupAnagrams {
         for (String str : strs) {
             String key = countAndSerialize(str);
 
-            List<String> list = map.getOrDefault(key, new ArrayList<>());
-            list.add(str);
-            map.put(key, list);
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList<>());
+            }
+            map.get(key).add(str);
         }
 
         for (List<String> list : map.values()) {
