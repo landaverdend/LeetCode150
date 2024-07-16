@@ -6,7 +6,7 @@ public class ValidPalindrome {
 
         String cleaned = cleanString(s);
 
-        int l = 0; int r = s.length() - 1;
+        int l = 0; int r = cleaned.length() - 1;
 
         while (l <= r) {
 
@@ -22,19 +22,20 @@ public class ValidPalindrome {
     }
 
     public static String cleanString(String s) {
-        StringBuilder theString = new StringBuilder(s.toLowerCase());
+        StringBuilder theString = new StringBuilder("");
 
         for (char c : s.toCharArray()) {
-            if (Character.isAlphabetic(c)) theString.append(c);
+            if (Character.isLetterOrDigit(c)) theString.append(c);
         }
 
-        return theString.toString();
+        return theString.toString().toLowerCase();
     }
 
     public static void main(String[] args) {
-        String str = "a";
+        String str = "A man, a plan, a canal: Panama";
         boolean result = isPalindrome(str);
-        System.out.println(System.out.printf("String %s is palindrome ? %o", str, result ));
+        String r = result ? "true" : "false";
+        System.out.println(System.out.printf("String %s is palindrome %s? ", str, r));
 
     }
 }
