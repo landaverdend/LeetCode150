@@ -42,10 +42,29 @@ public class TrappingRainWater {
 
 
     // Using left and right pointers....
-    public static int trap2() {
+    public static int trap2(int[] height) {
         int sum = 0;
+        int l = 0, r = height.length - 1;
+
+        int maxL = height[l], maxR = height[r];
 
 
+        while (l < r) {
+            // l is the smaller side...
+            if (maxL <= maxR) {
+                l++;
+                maxL = Math.max(height[l], maxL);
+                int storeable = maxL - height[l];
+                sum += Math.max(0, storeable);
+            }
+            // Max r is the min of min(maxR, maxL)
+            else {
+                r--;
+                maxR = Math.max(height[r], maxR);
+                int storeable = maxR - height[r];
+                sum += Math.max(0, storeable);
+            }
+        }
 
         return sum;
     }
@@ -54,5 +73,6 @@ public class TrappingRainWater {
         int[] arr = {0,1,0,2,1,0,1,3,2,1,2,1};
 
         trap(arr);
+        trap2(arr);
     }
 }
