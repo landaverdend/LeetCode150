@@ -14,34 +14,31 @@ public class BinarySearch {
 
 
     // nums is guaranteed to be already sorted in ascending order....
-    public static int search(int[] nums, int target) {
+    public static int search(int[] arr, int target) {
 
+        int l = 0, r = arr.length - 1;
 
-        int l = 0; int r = nums.length - 1;
         while (l <= r) {
-           int m = l + ((r - l) / 2);
-           // m is the target, back out..
-           if (nums[m] == target) {
-               return m;
-           }
-           // move the window to the left because nums[m] is too big
-           else if (nums[m] > target) {
-               r = m - 1;
-           } else { // move the window right. nums[m] is too small
-               l = m + 1;
-           }
+            int m = ((r - l) / 2) + l;
 
+            if (arr[m] == target) return m;
+
+            if (arr[m] < target) {
+                l = m + 1;
+            }
+            else {
+                r = m - 1;
+            }
         }
 
         return -1;
     }
-
     public static void main(String[] args) throws URISyntaxException {
 
-        List<Integer> nums = List.of(1, 2, 3, 4, 5, 6);
+        List<Integer> nums = List.of(1, 2);
         int[] intArray = nums.stream().mapToInt(Integer::intValue).toArray();
 
-        int target = 2;
+        int target = 3;
         System.out.println(String.format("Target: %d, Array: %s, Index: %d", target, nums, search(intArray, target) ));
 
     }
