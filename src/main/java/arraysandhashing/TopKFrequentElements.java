@@ -1,4 +1,4 @@
-package arraysAndHashing;
+package arraysandhashing;
 
 import java.util.*;
 

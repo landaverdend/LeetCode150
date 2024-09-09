@@ -1,6 +1,6 @@
 package common;
 
-import arraysAndHashing.GroupAnagrams;
+import arraysandhashing.GroupAnagrams;
 
 import java.io.File;
 import java.net.URISyntaxException;

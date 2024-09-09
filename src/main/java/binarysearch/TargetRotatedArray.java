@@ -1,4 +1,4 @@
-package binarySearch;
+package binarysearch;
 
 public class TargetRotatedArray {
 

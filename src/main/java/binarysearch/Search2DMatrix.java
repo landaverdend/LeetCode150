@@ -1,4 +1,4 @@
-package binarySearch;
+package binarysearch;
 
 public class Search2DMatrix {
     public static boolean searchMatrix(int[][] matrix, int target) {
